@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Pedidos</title>
+  </head>
+  <body>
+    <h1>Lista de Pedidos</h1>
+    <ul>
+      {% for order in orders %}
+      <li>Comprador: {{ order.client.name }} - {{ order.client.email }}</li>
+      <li>Total: {{ order.total_amount }}</li>
+      <li>Status: {{ order.status }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
