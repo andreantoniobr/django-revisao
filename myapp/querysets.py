@@ -5,6 +5,10 @@ class ClientQuerySet(models.QuerySet):
         return self.filter(is_deleted=False)
 
 
+class ProductQuerySet(models.QuerySet):
+    def actives(self):
+        return self.filter(is_deleted=False)
+
 class OrderQuerySet(models.QuerySet):
     def paid(self):
         return self.filter(status='paid')
@@ -17,7 +21,4 @@ class OrderQuerySet(models.QuerySet):
 
     def recent(self):
         return self.order_by('-created_at')
-
-    def by_customer(self, customer_id):
-        return self.filter(customer_id=customer_id)
 

@@ -1,6 +1,6 @@
 from django.db import models
 from core.base_models import BaseModel
-from core.managers import ClientManager, OrderManager
+from .managers import ClientManager, OrderManager
 
 class Client(BaseModel):
     name = models.CharField(max_length=255)
@@ -20,6 +20,9 @@ class Client(BaseModel):
     def __str__(self):
         return self.name
     
+class Product(BaseModel):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='products/')
 
 class Order(BaseModel):
     STATUS_CHOICES = [
